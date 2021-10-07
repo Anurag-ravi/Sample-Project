@@ -1,0 +1,96 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar{
+    width: .6rem;
+    background-color: #ffffff;
+    border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #D1D5DB;
+    border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #4B5563;
+}
+
+.nav-str{
+    @apply bg-white flex flex-row sm:divide-x sm:divide-gray-300 justify-between;
+}
+
+.nav-space{
+    @apply py-2.5 px-4 sm:px-16;
+}
+
+.nav-item-1-str{
+    @apply flex flex-row w-6/12 sm:w-4/12 md:w-3/12 lg:w-2/12;
+}
+
+.nav-item-2-str{
+    @apply w-1/12 sm:w-6/12 md:w-7/12 lg:w-8/12;
+}
+
+.nav-item-3-str{
+    @apply w-5/12 sm:w-2/12 md:w-2/12 lg:w-2/12 flex flex-row sm:mr-8;
+}
+
+.zoom-on-hover{
+    @apply transform hover:scale-110;
+}
+
+.brand-logo{
+    @apply w-10 h-10 rounded;
+}
+
+.brand-name{
+    @apply text-green-500 ml-2 mt-1.5 font-bold text-lg;
+}
+
+.form-str{
+    @apply bg-white container flex flex-col mx-auto justify-self-center mt-24 mb-8 py-3 shadow-md; 
+}
+
+.form-size{
+    @apply w-10/12 sm:w-8/12 md:w-7/12 lg:w-6/12 xl:w-5/12 2xl:w-4/12 rounded-md;
+}
+
+.form-input{
+    @apply bg-gray-100 hover:bg-gray-200 focus:bg-gray-200 focus:ring-0 py-2 px-4 w-4/6 mx-auto rounded-full;
+}
+
+.profile-img{
+    @apply w-24 h-24 rounded-full;
+}
+
+.btn-red{
+    @apply bg-red-500 hover:bg-red-700;
+}
+
+.btn-green{
+    @apply bg-green-500 hover:bg-green-700 focus:ring-4 focus:ring-green-200;
+}
+
+.btn-common{
+    @apply mx-auto rounded-md text-white;
+}
+
+.div-content{
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto w-4/6 mb-4;
+}
+
+.card{
+    @apply hover:shadow-2xl bg-white rounded-md shadow-lg p-4 flex flex-col items-center;
+}
+
+.card-name{
+    @apply my-1 text-green-500 font-semibold text-lg;
+}
+
+.card-designation{
+    @apply mt-1 mb-2 font-semibold;
+}

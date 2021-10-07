@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static '/favicon/apple-icon-57x57.png'%}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static '/favicon/apple-icon-60x60.png'%}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static '/favicon/apple-icon-72x72.png'%}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static '/favicon/apple-icon-76x76.png'%}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static '/favicon/apple-icon-114x114.png'%}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static '/favicon/apple-icon-120x120.png'%}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static '/favicon/apple-icon-144x144.png'%}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static '/favicon/apple-icon-152x152.png'%}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/favicon/apple-icon-180x180.png'%}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static '/favicon/android-icon-192x192.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/favicon/favicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static '/favicon/favicon-96x96.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/favicon/favicon-16x16.png'%}">
+    <link rel="manifest" href="{% static '/favicon/manifest.json'%}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static '/favicon/ms-icon-144x144.png'%}">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="author" content="Anurag Ravi">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static '/css/style.css'%}">
+    <title>AluminiDB</title>
+</head>
+<body class="bg-gray-100">
+    <!-- =============== NAVBAR =============== -->
+    <nav class="nav-str nav-space shadow-md fixed inset-x-0 top-0 z-40">
+        <div class="nav-item-1-str">
+            <img src="{% static '/img/logo.png'%}" class="brand-logo zoom-on-hover">
+            <span class="brand-name">AlumniDB</span>
+        </div>
+        <div class="nav-item-2-str"></div>
+        <div class="nav-item-3-str">
+            <i class='bx bx-search-alt-2 text-gray-700 bx-sm ml-2 mt-2.5'></i>
+            <input type="text" class="ml-2" placeholder="Quick Search">
+        </div>
+    </nav>
+    <!-- =============== INPUT FORM =============== -->
+    <div class="form-str form-size">
+        <form method="POST" class="flex flex-col" enctype='multipart/form-data'>
+        {% csrf_token %}
+            <img class="profile-img mx-auto" src="{% static '/img/profile.jpg'%}" alt="" id="select-img">
+            <a id="img-btn" class="btn-red btn-common mt-2 p-1 text-sm"><span id="btn-text">Select Image</span></a>
+            <input type="file" title=" " accept="image/*" class="opacity-0" name="{{form.profile.name}}" id="id_profile">
+            <input type="text" maxlength="50" placeholder="Name" class="form-input mb-2" name="{{form.name.name}}" id="id_name" required>
+            <input type="text" maxlength="50" placeholder="Designation" class="form-input my-2" name="{{form.designation.name}}" id="id_designation" required>
+            <button id="add-btn" type="submit" class="zoom-on-hover btn-green w-20 btn-common mt-4 py-1 text-lg">Add</button>
+        </form>
+    </div>
+    <div class="div-content" id="block-element">
+        <!-- =============== CARD DISPLAYED HERE =============== -->
+        {% for alumini in aluminies %}
+            <div class="card">
+                <img class="profile-img mb-1" src="{{alumini.profile.url}}" alt="">
+                <a class="card-name zoom-on-hover">{{alumini.name}}</a>
+                <p class="card-designation">{{alumini.designation}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
+    <script src="{% static '/js/script.js'%}"></script>
+</body>
+</html>
